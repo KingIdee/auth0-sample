@@ -14,16 +14,23 @@ $("#createpost").on('submit', function (e) {
         })
 });
 
- var token = localStorage.getItem('ACCESS_TOKEN_KEY')
+const token = localStorage.getItem('ACCESS_TOKEN_KEY')
 
-var config = {
-    headers: {'Authorization': `Bearer ${token}`}
-  };
+// axios.defaults.headers.common.Authorization = token;
 
-  console.log(`Bearer ${token}`);
+// var config = {
+//     headers: {'Authorization': `Bearer ${token}`}
+//   };
+
+console.log(`Bearer ${token}`);
+
+// const instance = axios.create({
+//     baseURL: 'http://localhost:5000/',
+//     timeout: 1000,
+//   });
 
 function getCategories() {
-    axios.get('/api/v1/categories',config)
+    axios.get('/api/v1/categories',{Authorization:`Bearer ${token}`})
         .then(res => {
             let options = res.data.data;
             let cleanData = "";
@@ -33,12 +40,12 @@ function getCategories() {
             document.getElementById('category').innerHTML = cleanData;
         })
         .catch(err => {
-            console.log(err);
+            console.log({err});
         })
 }
 
 function getPosts() {
-    axios.get('/api/v1/posts',config)
+    axios.get('/api/v1/posts',{Authorization:`Bearer ${token}`})
         .then(res => {
             let posts = res.data.data;
             let cleanData = "";
@@ -56,12 +63,12 @@ function getPosts() {
             document.getElementById('posts').innerHTML = cleanData;
         })
         .catch(err => {
-            console.log(err);
+            console.log({err});
         })
 }
 
 function getSinglePost(id) {
-    axios.get('/api/v1/post/' + id, config)
+    axios.get('/api/v1/post/' + id)
         .then(res => {
             console.log(res.data);
             let cleanData = `
