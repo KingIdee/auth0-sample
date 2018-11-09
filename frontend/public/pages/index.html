@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.auth0.com/js/auth0/9.5.1/auth0.min.js"></script>
+    <script src="../js/jwt-decode.min.js"></script>
+    <script src="../js/auth.js"></script>
+    <script>
+        if (isLoggedIn()) {
+            window.location.href = BLOG;
+        }
+    </script>
+
+
+</head>
+<style>
+    .login {
+        height: 400px;
+        width: 400px;
+        background-color: #fff;
+        padding: 40px;
+        margin-top: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .form-control {
+        border-radius: 0;
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+    }
+</style>
+
+<body style="background-color: #353535">
+
+
+    <div class="container">
+        <div class="login">
+            <button onclick="login()" id="login-with-auth0" class="btn btn-sm btn-info">Login with Auth0</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
