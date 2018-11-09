@@ -1,3 +1,6 @@
+const token = localStorage.getItem('ACCESS_TOKEN_KEY')
+axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+
 getCategories();
 getPosts();
 
@@ -14,23 +17,8 @@ $("#createpost").on('submit', function (e) {
         })
 });
 
-const token = localStorage.getItem('ACCESS_TOKEN_KEY')
-
-// axios.defaults.headers.common.Authorization = token;
-
-// var config = {
-//     headers: {'Authorization': `Bearer ${token}`}
-//   };
-
-console.log(`Bearer ${token}`);
-
-// const instance = axios.create({
-//     baseURL: 'http://localhost:5000/',
-//     timeout: 1000,
-//   });
-
 function getCategories() {
-    axios.get('/api/v1/categories',{Authorization:`Bearer ${token}`})
+    axios.get('/api/v1/categories')
         .then(res => {
             let options = res.data.data;
             let cleanData = "";
@@ -45,7 +33,7 @@ function getCategories() {
 }
 
 function getPosts() {
-    axios.get('/api/v1/posts',{Authorization:`Bearer ${token}`})
+    axios.get('/api/v1/posts')
         .then(res => {
             let posts = res.data.data;
             let cleanData = "";
