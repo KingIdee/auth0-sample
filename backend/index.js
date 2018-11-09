@@ -5,10 +5,10 @@ const app = express();
 const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
 const jwksRsa = require('jwks-rsa');
+const envVariables = require('../env-variables.json');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 
 let categories = {
   data: ['Politics', 'Entertainment', 'Technology']
@@ -25,7 +25,6 @@ let blog = {
   ],
 }
 
-//app.use(express.static('public'))
 app.use(express.static('../frontend/public'))
 
 
@@ -52,10 +51,10 @@ app.use(jwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: `https://idee.auth0.com/.well-known/jwks.json`
+    jwksUri: `https://${envVariables.auth0Domain}/.well-known/jwks.json`
   }),
-  audience: 'https://backend-api-url.com/',
-  issuer: `https://idee.auth0.com/`,
+  audience: envVariables.apiIdentifier,
+  issuer: `https://${envVariables.auth0Domain}/`,
   algorithms: ['RS256']
 }));
 

@@ -1,9 +1,9 @@
 
-const CLIENT_ID = 'pKVfsNmwK9tlcVvSvdK9pL5W1kuWs0sp';
-const CLIENT_DOMAIN = 'idee.auth0.com';
-const REDIRECT = 'http://localhost:5000/callback';
-const SCOPE = '{SCOPE}';
-const AUDIENCE = 'AUDIENCE_ATTRIBUTE';
+//const CLIENT_ID = 'pKVfsNmwK9tlcVvSvdK9pL5W1kuWs0sp';
+//const CLIENT_DOMAIN = 'idee.auth0.com';
+//const REDIRECT = '';
+//const SCOPE = '{SCOPE}';
+//const AUDIENCE = 'AUDIENCE_ATTRIBUTE';
 const ACCESS_TOKEN_KEY = 'ACCESS_TOKEN_KEY';
 const ID_TOKEN_KEY = 'ID_TOKEN_KEY';
 
@@ -12,12 +12,12 @@ const HOME = LOCAL;
 const BLOG = LOCAL + 'blog';
 
 var auth = new auth0.WebAuth({
-    clientID: CLIENT_ID,
-    domain: CLIENT_DOMAIN,
+    clientID: 'pKVfsNmwK9tlcVvSvdK9pL5W1kuWs0sp',
+    domain: 'idee.auth0.com',
     audience: 'https://backend-api-url.com/',
     redirectUri: 'http://localhost:5000/callback',
     responseType: 'token id_token',
-    scope: 'openid profile read:blog add:blog'
+    scope: 'openid profile'
 });
 
 function login() {

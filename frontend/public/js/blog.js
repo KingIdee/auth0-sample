@@ -1,6 +1,6 @@
 const token = localStorage.getItem('ACCESS_TOKEN_KEY')
 axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-
+console.log(token);
 getCategories();
 getPosts();
 

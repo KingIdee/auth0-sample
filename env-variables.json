@@ -1,0 +1,6 @@
+{
+    "apiIdentifier": "https://backend-api-url.com/",
+    "auth0Domain": "idee.auth0.com",
+    "clientId": "pKVfsNmwK9tlcVvSvdK9pL5W1kuWs0sp",
+    "redirectUri":"http://localhost:5000/callback"
+  }
