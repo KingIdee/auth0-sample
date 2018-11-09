@@ -1,0 +1,30 @@
+.card-hover:hover{
+    text-decoration: none;
+}
+
+.card{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.link:hover{
+    text-decoration: none;
+    color: grey;
+}
+
+.link:visited{
+    text-decoration: none;
+    color: grey;
+}
+
+.form-control{
+    border-radius: 0;
+}
+
+.form-control:focus{
+    box-shadow: none;
+}
