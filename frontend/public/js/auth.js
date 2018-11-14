@@ -1,9 +1,3 @@
-
-//const CLIENT_ID = 'pKVfsNmwK9tlcVvSvdK9pL5W1kuWs0sp';
-//const CLIENT_DOMAIN = 'idee.auth0.com';
-//const REDIRECT = '';
-//const SCOPE = '{SCOPE}';
-//const AUDIENCE = 'AUDIENCE_ATTRIBUTE';
 const ACCESS_TOKEN_KEY = 'ACCESS_TOKEN_KEY';
 const ID_TOKEN_KEY = 'ID_TOKEN_KEY';
 

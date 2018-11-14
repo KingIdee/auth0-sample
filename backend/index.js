@@ -10,11 +10,11 @@ const envVariables = require('../env-variables.json');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-let categories = {
+const categories = {
   data: ['Politics', 'Entertainment', 'Technology']
 };
 
-let blog = {
+const blog = {
   data: [
     {
       id: 1,
