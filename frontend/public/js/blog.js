@@ -1,4 +1,4 @@
-const token = localStorage.getItem('ACCESS_TOKEN_KEY')
+const token = getAccessToken();
 axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
 getCategories();
@@ -16,6 +16,12 @@ $("#createpost").on('submit', function (e) {
             console.log(err);
         })
 });
+
+function getAccessToken() {
+    const cookieName = "ACCESS_TOKEN_KEY";
+    var v = document.cookie.match('(^|;) ?' + cookieName + '=([^;]*)(;|$)');
+    return v ? v[2] : null;
+}
 
 function getCategories() {
     axios.get('/api/v1/categories')

@@ -18,20 +18,34 @@ function login() {
     auth.authorize();
 }
 
-function getIdToken() {
-    return localStorage.getItem(ID_TOKEN_KEY);
+function clearAccessToken() { 
+    document.cookie = ACCESS_TOKEN_KEY + "=" + null + ";path=/;" ;
+}
+
+function clearIdToken() { 
+    document.cookie = ID_TOKEN_KEY + "=" + null + ";path=/;" ;
+}
+
+function setAccessToken() {
+    value = getParameterByName('access_token');
+    console.log(value);
+    document.cookie = ACCESS_TOKEN_KEY + "=" + value + ";path=/;";
 }
 
 function getAccessToken() {
-    return localStorage.getItem(ACCESS_TOKEN_KEY);
+    var v = document.cookie.match('(^|;) ?' + ACCESS_TOKEN_KEY + '=([^;]*)(;|$)');
+    return v ? v[2] : null;
 }
 
-function clearIdToken() {
-    localStorage.removeItem(ID_TOKEN_KEY);
+function setIdToken() {
+    value = getParameterByName('id_token');
+    console.log(value);
+    document.cookie = ID_TOKEN_KEY + "=" + value + ";path=/;";
 }
 
-function clearAccessToken() {
-    localStorage.removeItem(ACCESS_TOKEN_KEY);
+function getIdToken(){
+    var v = document.cookie.match('(^|;) ?' + ID_TOKEN_KEY + '=([^;]*)(;|$)');
+    return v ? v[2] : null;
 }
 
 // Helper function that will allow us to extract the access_token and id_token
@@ -40,22 +54,10 @@ function getParameterByName(name) {
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
-// Get and store access_token in local storage
-function setAccessToken() {
-    let accessToken = getParameterByName('access_token');
-    localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
-}
-
 function logout() {
     clearIdToken();
     clearAccessToken();
     window.location.href = HOME;
-}
-
-// Get and store id_token in local storage
-function setIdToken() {
-    let idToken = getParameterByName('id_token');
-    localStorage.setItem(ID_TOKEN_KEY, idToken);
 }
 
 function isLoggedIn() {
